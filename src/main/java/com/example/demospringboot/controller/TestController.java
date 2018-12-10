@@ -5,6 +5,7 @@ import lombok.Cleanup;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -12,12 +13,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-@Controller
-@RequestMapping("/")
+@RestController
 public class TestController {
 
-    @RequestMapping("testStr")
-    @ResponseBody
+    @RequestMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
+
+    @RequestMapping("/testStr")
     public String testStr(TestBean testBean, HttpServletRequest request) {
         System.err.println(testBean);
         StringBuffer stringBuffer = new StringBuffer();

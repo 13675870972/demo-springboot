@@ -1,4 +1,4 @@
-package com.example.demospringboot.config.filter;
+package com.example.demospringboot.util;
 
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
@@ -22,6 +22,9 @@ public class ConvertUtil {
     public static Map<String, String> json2Map(String objStr) {
         Map<String, String> data = new TreeMap<String, String>();
         JSONObject obj = JSONObject.parseObject(objStr);
+        if (StringUtils.isEmpty(objStr)) {
+            return data;
+        }
         for (String key : obj.keySet()) {
             String value = obj.getString(key);
             if (StringUtils.isEmpty(value)) {
@@ -37,9 +40,9 @@ public class ConvertUtil {
      * @param map
      * @return
      */
-    public static String map2Form(HashMap<String, String> map) {
+    public static String map2Form(Map<String, String> map) {
         StringBuilder stringBuilder = new StringBuilder();
-        if (map == null) {
+        if (map == null || map.size() == 0) {
             return stringBuilder.toString();
         } else {
             for (Map.Entry<String, String> entry :

@@ -1,4 +1,4 @@
-package com.example.demospringboot.config.filter;
+package com.example.demospringboot.util;
 
 import lombok.extern.slf4j.Slf4j;
 
