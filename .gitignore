@@ -1,5 +1,6 @@
 .metadata/                                                                                                                                  
 .idea/
+.mvn/
 /**/target/
 /**/tmp/
 /**/logs/
