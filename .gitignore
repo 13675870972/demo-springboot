@@ -16,3 +16,5 @@
 /*.iws
 /**/*.log
 /**/*.versionsBackup
+/mvnw.cmd
+/mvnw
