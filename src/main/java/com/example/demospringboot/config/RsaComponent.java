@@ -42,13 +42,13 @@ public class RsaComponent {
 
     /**
      * 公钥加密算法
-     * cryptograph:密文
+     * @param source
+     * @return
+     * @throws Exception
      */
     public String encrypt(String source) throws Exception {
-        String pk = "";
-        pk = public_key;
         /** 将文件中的公钥对象读出 */
-        PublicKey publicKey = getPublicKey(pk);
+        PublicKey publicKey = getPublicKey(public_key);
         /** 得到Cipher对象来实现对源数据的RSA加密 */
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, publicKey);
@@ -88,12 +88,12 @@ public class RsaComponent {
 
     /**
      * 私钥解密算法
-     * cryptograph:密文
+     * @param cryptograph
+     * @return
+     * @throws Exception
      */
     public String decrypt(String cryptograph) throws Exception {
-        String pk = "";
-        pk = private_key;
-        PrivateKey privateKey = getPrivateKey(pk);
+        PrivateKey privateKey = getPrivateKey(private_key);
         Cipher cipher = Cipher.getInstance(ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
         BASE64Decoder decoder = new BASE64Decoder();
@@ -131,7 +131,9 @@ public class RsaComponent {
 
     /**
      * 私钥加密算法
-     * cryptograph:密文
+     * @param source
+     * @return
+     * @throws Exception
      */
     public String encryptPrivate(String source) throws Exception {
         /** 将文件中的公钥对象读出 */
