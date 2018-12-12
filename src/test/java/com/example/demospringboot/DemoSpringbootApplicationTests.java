@@ -1,16 +1,36 @@
 package com.example.demospringboot;
 
+import com.example.demospringboot.action.DemoSpringbootApplication;
+import com.example.demospringboot.config.RsaComponent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = DemoSpringbootApplication.class)
 public class DemoSpringbootApplicationTests {
 
     @Test
     public void contextLoads() {
     }
 
+    @Autowired
+    RsaComponent rsaComponent;
+
+    @Test
+    public void testRSA() throws Exception {
+        System.err.println("-----------------------------");
+        String encrypt = rsaComponent.encrypt("123");
+        System.err.println(encrypt);
+        System.err.println("-----------------------------");
+        String decrypt = rsaComponent.decrypt(encrypt);
+        System.err.println(decrypt);
+
+
+    }
 }
