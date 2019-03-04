@@ -2,6 +2,9 @@ package com.example.demospringboot;
 
 import com.example.demospringboot.action.DemoSpringbootApplication;
 import com.example.demospringboot.config.RsaComponent;
+import com.example.demospringboot.mapper.UserInfoMapper;
+import com.example.demospringboot.vo.UserInfo;
+import com.example.demospringboot.vo.UserInfoExample;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,9 @@ import java.security.PublicKey;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoSpringbootApplication.class)
 public class DemoSpringbootApplicationTests {
+
+    @Autowired
+    UserInfoMapper userInfoMapper;
 
     @Test
     public void contextLoads() {
@@ -32,5 +38,21 @@ public class DemoSpringbootApplicationTests {
         System.err.println(decrypt);
 
 
+    }
+
+    @Test
+    public void testDB() throws Exception {
+        UserInfo userInfo = new UserInfo();
+        userInfo.setName("cyc");
+        userInfo.setPassword("cay");
+        userInfo.setSalt("123");
+        userInfo.setStatus(true);
+        int insert = userInfoMapper.insert(userInfo);
+
+        System.err.println(insert);
+
+
+        UserInfo userInfo1 = userInfoMapper.selectByPrimaryKey(1);
+        System.err.println(userInfo1);
     }
 }

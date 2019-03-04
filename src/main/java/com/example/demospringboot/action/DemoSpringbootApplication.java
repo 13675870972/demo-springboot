@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
  * @author cyc
  */
 @SpringBootApplication
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = "com")
 public class DemoSpringbootApplication {
     public static void main(String[] args) {

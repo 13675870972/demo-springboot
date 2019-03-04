@@ -19,17 +19,17 @@ import java.io.IOException;
  * @Description:
  */
 @Slf4j
-@Configuration
+//@Configuration
 public class ConvertHandlerFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         log.info("进入过滤器...");
 
         // 防止流读取一次后就没有了, 所以需要将流继续写出去，提供后续使用
-        ServletRequest requestWrapper = new ConvertHttpServletRequestWrapper(request);
-        String json = HttpHelper.getBodyString(requestWrapper);
-        log.info("进入过滤器...json == {}", json);
-
-        filterChain.doFilter(requestWrapper, response);
+//        ServletRequest requestWrapper = new ConvertHttpServletRequestWrapper(request);
+//        String json = HttpHelper.getBodyString(requestWrapper);
+//        log.info("进入过滤器...json == {}", json);
+//
+//        filterChain.doFilter(requestWrapper, response);
     }
 }
