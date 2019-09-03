@@ -43,5 +43,6 @@ public class DemoSpringbootApplicationTests {
     @Test
     public void testDB() throws Exception {
         System.err.println("111");
+        System.err.println("111");
     }
 }
