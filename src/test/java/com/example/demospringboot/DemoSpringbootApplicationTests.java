@@ -42,17 +42,6 @@ public class DemoSpringbootApplicationTests {
 
     @Test
     public void testDB() throws Exception {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setName("cyc");
-        userInfo.setPassword("cay");
-        userInfo.setSalt("123");
-        userInfo.setStatus(true);
-        int insert = userInfoMapper.insert(userInfo);
 
-        System.err.println(insert);
-
-
-        UserInfo userInfo1 = userInfoMapper.selectByPrimaryKey(1);
-        System.err.println(userInfo1);
     }
 }
